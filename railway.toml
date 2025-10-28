@@ -1,0 +1,10 @@
+# railway.toml
+[project]
+name = "db-project"
+
+[build]
+start = "sh start.sh"
+
+[plugins]
+[[plugins]]
+name = "mysql"
