@@ -6,5 +6,4 @@ name = "db-project"
 start = "sh start.sh"
 
 [plugins]
-[[plugins]]
 name = "mysql"
