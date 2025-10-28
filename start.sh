@@ -8,11 +8,11 @@ DB_NAME=${MYSQL_DATABASE}
 
 if [ -f db/schema.sql ]; then
     echo "Initializing database schema.."
-    mysql -h "$DB_HOST" -P "$DB_PORT" -u "$DB_USER" -p"$DB_PASS" "$DB_NAME" < db/init.sql
+    mysql -h "$DB_HOST" -P "$DB_PORT" -u "$DB_USER" -p"$DB_PASS" "$DB_NAME" < db/schema.sql
 fi
 if [ -f db/seed_data.sql ]; then
     echo "Applying dummy data..."
-    mysql -h "$DB_HOST" -P "$DB_PORT" -u "$DB_USER" -p"$DB_PASS" "$DB_NAME" < db/init.sql
+    mysql -h "$DB_HOST" -P "$DB_PORT" -u "$DB_USER" -p"$DB_PASS" "$DB_NAME" < db/seed_data.sql
 fi
 
 PORT=${PORT:-8080}
