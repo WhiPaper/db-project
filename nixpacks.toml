@@ -1,0 +1,7 @@
+[phases.setup]
+nixPkgs = [
+  "php",
+  "php-cli",
+  "php-mysql",
+  "mysql-client"
+]
