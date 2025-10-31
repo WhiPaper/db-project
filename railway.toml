@@ -3,6 +3,7 @@ builder = "NIXPACKS"
 
 [build.nixpacksPlan]
 path = "nixpacks.toml"
+autoDetect = false
 
 [start]
 cmd = "./start.sh"
