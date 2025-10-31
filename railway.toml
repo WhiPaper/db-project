@@ -1,9 +1,18 @@
 [build]
-builder = "NIXPACKS"
-
-[build.nixpacksPlan]
-path = "nixpacks.toml"
-autoDetect = false
+builder = "RAILPACK"
 
 [deploy]
-startCommand = "./start.sh"
+startCommand = """
+if [ -f db/schema.sql ]; then
+  echo 'Initializing MySQL schema...'
+  mysql -h "$MYSQLHOST" -P "$MYSQLPORT" -u "$MYSQLUSER" -p"$MYSQLPASSWORD" "$MYSQLDATABASE" < db/schema.sql || true
+fi
+
+if [ -f db/seed.sql ]; then
+  echo 'Seeding data...'
+  mysql -h "$MYSQLHOST" -P "$MYSQLPORT" -u "$MYSQLUSER" -p"$MYSQLPASSWORD" "$MYSQLDATABASE" < db/seed.sql || true
+fi
+
+echo 'Starting PHP server...'
+php -S 0.0.0.0:$PORT -t public
+"""
