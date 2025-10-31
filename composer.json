@@ -1,6 +1,0 @@
-{
-  "name": "sql/pc-room-management-system",
-  "require": {
-	"php": ">=8.4"
-  }
-}
