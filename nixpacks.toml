@@ -4,5 +4,11 @@ nixPkgs = [
   "mysql-client"
 ]
 
+[phases.build]
+cmds = [
+  "chmod +x start.sh",
+  "echo Build step complete"
+]
+
 [start]
 cmd = "./start.sh"
