@@ -5,10 +5,7 @@ $db   = getenv('MYSQL_DATABASE');
 $user = getenv('MYSQL_USER');
 $pass = getenv('MYSQL_PASSWORD');
 
-$mysqli = new mysqli($host, $user, $pass, $db, $port);
-
-if ($mysqli->connect_error) {
-    die("Database connection failed: " . $mysqli->connect_error);
-}
-
-echo "Database connected successfully!";
+$conn = mysqli_connect($host, $user, $pass, $db, $port) or die("Connection failed: " . mysqli_connect_error());
+phpinfo();
+mysqli_close($conn);
+?>
