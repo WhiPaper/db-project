@@ -3,3 +3,6 @@ nixPkgs = [
   "php",
   "mysql-client"
 ]
+
+[start]
+cmd = "./start.sh"
